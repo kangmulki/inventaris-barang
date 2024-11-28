@@ -24,7 +24,7 @@
         <div class="col-sm-4 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h5>Jumlah Data di Data Barang</h5>
+                    <h5>Master Barang</h5>
                     <div class="row">
                         <div class="col-8 col-sm-12 col-xl-8 my-auto">
                             <div class="d-flex d-sm-block d-md-flex align-items-center">
@@ -45,7 +45,7 @@
         <div class="col-sm-4 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h5>Jumlah Data di Data Barang Masuk</h5>
+                    <h5>Barang Masuk</h5>
                     <div class="row">
                         <div class="col-8 col-sm-12 col-xl-8 my-auto">
                             <div class="d-flex d-sm-block d-md-flex align-items-center">
@@ -66,7 +66,7 @@
         <div class="col-sm-4 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h5>Jumlah Data di Data Barang Keluar</h5>
+                    <h5>Barang Keluar</h5>
                     <div class="row">
                         <div class="col-8 col-sm-12 col-xl-8 my-auto">
                             <div class="d-flex d-sm-block d-md-flex align-items-center">
@@ -90,7 +90,7 @@
         <div class="col-sm-4 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h5>Jumlah Data di Data Pengembalian</h5>
+                    <h5>Pengembalian</h5>
                     <div class="row">
                         <div class="col-8 col-sm-12 col-xl-8 my-auto">
                             <div class="d-flex d-sm-block d-md-flex align-items-center">
@@ -112,7 +112,7 @@
         <div class="col-sm-4 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h5>Jumlah Data di Data Peminjaman</h5>
+                    <h5>Peminjaman</h5>
                     <div class="row">
                         <div class="col-8 col-sm-12 col-xl-8 my-auto">
                             <div class="d-flex d-sm-block d-md-flex align-items-center">

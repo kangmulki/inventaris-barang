@@ -21,11 +21,19 @@
             <span class="nav-link">Daftar Tabel</span>
         </li>
         <li class="nav-item menu-items">
+            <a class="nav-link" href="">
+                <span class="menu-icon">
+                    <i class="mdi mdi-playlist-play"></i>
+                </span>
+                <span class="menu-title">Data Petugas</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('datapusat.index') }}">
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
-                <span class="menu-title">Data Barang</span>
+                <span class="menu-title">Data Master Barang</span>
             </a>
         </li>
         <li class="nav-item menu-items">
@@ -33,7 +41,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
-                <span class="menu-title">Barang Masuk</span>
+                <span class="menu-title">Data Barang Masuk</span>
             </a>
         </li>
         <li class="nav-item menu-items">
@@ -41,7 +49,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
-                <span class="menu-title">Barang Keluar</span>
+                <span class="menu-title">Data Barang Keluar</span>
             </a>
         </li>
         <li class="nav-item menu-items">
