@@ -20,14 +20,16 @@
         <li class="nav-item nav-category">
             <span class="nav-link">Daftar Tabel</span>
         </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="">
-                <span class="menu-icon">
-                    <i class="mdi mdi-playlist-play"></i>
-                </span>
-                <span class="menu-title">Data Petugas</span>
-            </a>
-        </li>
+        @if (Auth::user()->is_admin === 1)
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="{{ route('petugas.index') }}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-playlist-play"></i>
+                    </span>
+                    <span class="menu-title">Data Petugas</span>
+                </a>
+            </li>
+        @endif
         <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('datapusat.index') }}">
                 <span class="menu-icon">

@@ -58,9 +58,27 @@ class DataPusatController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'merek' => 'required|string|max:255',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'nama.required' => 'Nama Harus Diisi',
+            'merek.required' => 'Merek Harus Diisi',
+            'foto.required' => 'Foto Harus Diisi',
+        ]);
+
         $datapusat = new DataPusat;
         $datapusat->nama = $request->nama;
         $datapusat->merek = $request->merek;
+
+        if ($request->hasFile('foto')) {
+            $img = $request->file('foto');
+            $name = rand(1000, 9999) . $img->getClientOriginalName();
+            $img->move('images/foto/datapusat', $name);
+            $datapusat->foto = $name;
+        }
 
         $datapusat->save();
         Alert::success('Success', 'Data Berhasil Ditambahkan')->autoClose(1500);
@@ -101,9 +119,34 @@ class DataPusatController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'merek' => 'required|string|max:255',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'nama.required' => 'Nama Harus Diisi',
+            'merek.required' => 'Merek Harus Diisi',
+        ]);
+
         $datapusat = DataPusat::findOrFail($id);
         $datapusat->nama = $request->nama;
         $datapusat->merek = $request->merek;
+
+        if ($request->hasFile('foto')) {
+
+            $fotoLama = $datapusat->foto;
+            if ($fotoLama && file_exists(public_path('images/foto/datapusat/' . $fotoLama))) {
+                unlink(public_path('images/foto/datapusat/' . $fotoLama));
+            }
+
+            $img = $request->file('foto');
+            $name = rand(1000, 9999) . $img->getClientOriginalName();
+            $img->move(public_path('images/foto/datapusat'), $name);
+            $datapusat->foto = $name;
+
+        }
+
         $datapusat->save();
         Alert::success('Success', 'Data Berhasil Diubah')->autoClose(1500);
         return redirect()->route('datapusat.index');
@@ -118,6 +161,11 @@ class DataPusatController extends Controller
     public function destroy($id)
     {
         $datapusat = DataPusat::findOrFail($id);
+
+        if ($datapusat->foto && file_exists(public_path('images/foto/datapusat/' . $datapusat->foto))) {
+            unlink(public_path('images/foto/datapusat/' . $datapusat->foto));
+        }
+
         $datapusat->delete();
         Alert::success('Success', 'Data Berhasil Dihapus')->autoClose(1500);
         return redirect()->route('datapusat.index');

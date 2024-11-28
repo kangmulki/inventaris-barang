@@ -10,24 +10,28 @@ class DataPusat extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'nama',
         'merek',
-        'stok'
+        'foto',
+        'stok',
     ];
 
     public $timestamps = true;
 
-    public function barangmasuk() {
+    public function barangmasuk()
+    {
         return $this->hasMany(BarangMasuk::class);
     }
-    public function barangkeluar() {
+    public function barangkeluar()
+    {
         return $this->hasMany(BarangKeluar::class);
     }
-    public function peminjaman() {
+    public function peminjaman()
+    {
         return $this->hasMany(Peminjaman::class);
     }
-    public function pengembalian() {
+    public function pengembalian()
+    {
         return $this->hasMany(Pengembalian::class);
     }
 }

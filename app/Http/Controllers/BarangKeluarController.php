@@ -78,6 +78,19 @@ class BarangKeluarController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'jumlah' => 'required',
+            'tgl_keluar' => 'required',
+            'ket' => 'required',
+            'id_barang' => 'required',
+        ], [
+            'jumlah.required' => 'Jumlah Harus Diisi',
+            'tgl_keluar.required' => 'Tanggal Keluar Harus Diisi',
+            'ket.required' => 'Keterangan Harus Diisi',
+            'id_barang.required' => 'Barang Harus Diisi',
+        ]);
+
         $keluar = new BarangKeluar();
         $keluar->jumlah = $request->jumlah;
         $keluar->tgl_keluar = $request->tgl_keluar;
@@ -133,6 +146,19 @@ class BarangKeluarController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'jumlah' => 'required',
+            'tgl_keluar' => 'required',
+            'ket' => 'required',
+            'id_barang' => 'required',
+        ], [
+            'jumlah.required' => 'Jumlah Harus Diisi',
+            'tgl_keluar.required' => 'Tanggal Keluar Harus Diisi',
+            'ket.required' => 'Keterangan Harus Diisi',
+            'id_barang.required' => 'Barang Harus Diisi',
+        ]);
+
         $keluar = BarangKeluar::findOrFail($id);
         $pusat = DataPusat::findOrFail($keluar->id_barang);
 

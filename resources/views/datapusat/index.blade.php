@@ -47,6 +47,7 @@
                             <th>Nama Barang</th>
                             <th>Merek</th>
                             <th>Stok</th>
+                            <th>Foto</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -60,6 +61,9 @@
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ $data->merek }}</td>
                                 <td>{{ $data->stok }}</td>
+                                <td>
+                                    <img src="{{ asset('/images/foto/datapusat/' . $data->foto) }}" width="">
+                                </td>
                                 <td>
                                     <form action="{{ route('datapusat.destroy', $data->id) }}" method="POST">
                                         @csrf

@@ -81,6 +81,19 @@ class BarangMasukController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'jumlah' => 'required',
+            'tgl_masuk' => 'required',
+            'ket' => 'required',
+            'id_barang' => 'required',
+        ], [
+            'jumlah.required' => 'Jumlah Barang Masuk Harus Diisi',
+            'tgl_masuk.required' => 'Tanggal Masuk Harus Diisi',
+            'ket.required' => 'Keterangan Harus Diisi',
+            'id_barang.required' => 'Barang Masuk Harus Dipilih',
+        ]);
+
         $masuk = new BarangMasuk();
         $masuk->jumlah = $request->jumlah;
         $masuk->tgl_masuk = $request->tgl_masuk;

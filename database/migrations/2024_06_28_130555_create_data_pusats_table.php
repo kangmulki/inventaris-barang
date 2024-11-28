@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('merek');
+            $table->string('foto');
             $table->unsignedBigInteger('stok')->default(0);
             $table->timestamps();
         });

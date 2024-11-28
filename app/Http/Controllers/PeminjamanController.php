@@ -82,6 +82,21 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'jumlah' => 'required',
+            'tgl_pinjam' => 'required',
+            'tgl_kembali' => 'required',
+            'nama_peminjam' => 'required',
+            'id_barang' => 'required',
+        ], [
+            'jumlah.required' => 'Jumlah Harus Diisi',
+            'tgl_pinjam.required' => 'Tanggal Pinjam Harus Diisi',
+            'tgl_kembali.required' => 'Tanggal Kembali Harus Diisi',
+            'nama_peminjam.required' => 'Nama Peminjam Harus Diisi',
+            'id_barang.required' => 'Barang Harus Diisi',
+        ]);
+
         $pinjam = new Peminjaman;
         $pinjam->jumlah = $request->jumlah;
         $pinjam->tgl_pinjam = $request->tgl_pinjam;
@@ -138,6 +153,21 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'jumlah' => 'required',
+            'tgl_pinjam' => 'required',
+            'tgl_kembali' => 'required',
+            'nama_peminjam' => 'required',
+            'id_barang' => 'required',
+        ], [
+            'jumlah.required' => 'Jumlah Harus Diisi',
+            'tgl_pinjam.required' => 'Tanggal Pinjam Harus Diisi',
+            'tgl_kembali.required' => 'Tanggal Kembali Harus Diisi',
+            'nama_peminjam.required' => 'Nama Peminjam Harus Diisi',
+            'id_barang.required' => 'Barang Harus Diisi',
+        ]);
+
         $pinjam = Peminjaman::findOrFail($id);
         $pusat = DataPusat::findOrFail($pinjam->id_barang);
 
