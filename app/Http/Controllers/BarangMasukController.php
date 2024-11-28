@@ -95,6 +95,13 @@ class BarangMasukController extends Controller
         ]);
 
         $masuk = new BarangMasuk();
+
+        $lastRecord = BarangMasuk::latest('id')->first();
+        $lastId = $lastRecord ? $lastRecord->id : 0;
+        $kodeBarang = 'MSK-' . str_pad($lastId + 1, 4, '0', STR_PAD_LEFT);
+
+        $masuk->kode_barang = $kodeBarang;
+
         $masuk->jumlah = $request->jumlah;
         $masuk->tgl_masuk = $request->tgl_masuk;
         $masuk->ket = $request->ket;

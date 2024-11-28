@@ -92,6 +92,12 @@ class BarangKeluarController extends Controller
         ]);
 
         $keluar = new BarangKeluar();
+
+        $lastRecord = BarangKeluar::latest('id')->first();
+        $lastId = $lastRecord ? $lastRecord->id : 0;
+        $kodeBarang = 'KLR-' . str_pad($lastId + 1, 4, '0', STR_PAD_LEFT);
+
+        $keluar->kode_barang = $kodeBarang;
         $keluar->jumlah = $request->jumlah;
         $keluar->tgl_keluar = $request->tgl_keluar;
         $keluar->ket = $request->ket;

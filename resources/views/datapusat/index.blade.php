@@ -44,6 +44,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Kode Barang</th>
                             <th>Nama Barang</th>
                             <th>Merek</th>
                             <th>Stok</th>
@@ -58,6 +59,7 @@
                         @foreach ($datapusat as $data)
                             <tr>
                                 <td>{{ $no++ }}</td>
+                                <td><span class="badge badge-secondary text-dark">{{ $data->kode_barang }}</span></td>
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ $data->merek }}</td>
                                 <td>{{ $data->stok }}</td>

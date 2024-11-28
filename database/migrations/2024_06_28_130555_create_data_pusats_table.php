@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('data_pusats', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_barang')->unique();
             $table->string('nama');
             $table->string('merek');
             $table->string('foto');

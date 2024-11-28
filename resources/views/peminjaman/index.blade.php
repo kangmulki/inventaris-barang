@@ -61,7 +61,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Kode Peminjaman</th>
                                 <th>Nama Barang</th>
+                                <th>Kode Barang</th>
                                 <th>Jumlah</th>
                                 <th>Tanggal Pinjam</th>
                                 <th>Tanggal Kembali</th>
@@ -77,7 +79,11 @@
                             @foreach ($pinjam as $data)
                                 <tr>
                                     <td>{{ $no++ }}</td>
+                                    <td><span class="badge badge-primary text-light">{{ $data->kode_barang }}</span>
                                     <td>{{ $data->pusat->nama }}</td>
+                                    <td><span
+                                            class="badge badge-secondary text-dark">{{ $data->pusat->kode_barang }}</span>
+                                    </td>
                                     <td>{{ $data->jumlah }}</td>
                                     <td>{{ $data->formatted_tanggal_pinjam }}</td>
                                     <td>{{ $data->formatted_tanggal_kembali }}</td>

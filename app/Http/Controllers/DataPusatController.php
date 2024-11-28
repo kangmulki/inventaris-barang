@@ -70,6 +70,12 @@ class DataPusatController extends Controller
         ]);
 
         $datapusat = new DataPusat;
+
+        $lastRecord = DataPusat::latest('id')->first();
+        $lastId = $lastRecord ? $lastRecord->id : 0;
+        $kodeBarang = 'BRG-' . str_pad($lastId + 1, 4, '0', STR_PAD_LEFT);
+
+        $datapusat->kode_barang = $kodeBarang;
         $datapusat->nama = $request->nama;
         $datapusat->merek = $request->merek;
 

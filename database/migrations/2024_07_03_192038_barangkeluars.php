@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('barang_keluars', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_barang')->unique();
             $table->unsignedBigInteger('jumlah');
             $table->date('tgl_keluar');
             $table->string('ket');

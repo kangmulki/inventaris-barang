@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_barang')->unique();
             $table->unsignedBigInteger('jumlah');
             $table->date('tgl_pinjam');
             $table->date('tgl_kembali');

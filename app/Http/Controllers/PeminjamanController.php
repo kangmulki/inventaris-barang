@@ -98,6 +98,13 @@ class PeminjamanController extends Controller
         ]);
 
         $pinjam = new Peminjaman;
+
+        $lastRecord = Peminjaman::latest('id')->first();
+        $lastId = $lastRecord ? $lastRecord->id : 0;
+        $kodeBarang = 'PJM-' . str_pad($lastId + 1, 4, '0', STR_PAD_LEFT);
+
+        $pinjam->kode_barang = $kodeBarang;
+
         $pinjam->jumlah = $request->jumlah;
         $pinjam->tgl_pinjam = $request->tgl_pinjam;
         $pinjam->tgl_kembali = $request->tgl_kembali;

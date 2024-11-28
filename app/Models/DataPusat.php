@@ -10,6 +10,7 @@ class DataPusat extends Model
     use HasFactory;
 
     protected $fillable = [
+        'kode_barang',
         'nama',
         'merek',
         'foto',

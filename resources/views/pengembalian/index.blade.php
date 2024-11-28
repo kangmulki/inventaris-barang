@@ -58,10 +58,12 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Barang</th>
+                                <th>Kode Barang</th>
                                 <th>Merek</th>
                                 <th>Jumlah</th>
                                 <th>Tanggal Kembali</th>
                                 <th>Nama Peminjam</th>
+                                <th>Kode Peminjam</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -73,10 +75,13 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $data->pusat->nama }}</td>
+                                    <td><span class="badge badge-secondary text-dark">{{ $data->pusat->kode_barang }}</span>
+                                    </td>
                                     <td>{{ $data->pusat->merek }}</td>
                                     <td>{{ $data->jumlah }}</td>
                                     <td>{{ $data->formatted_tanggal }}</td>
                                     <td>{{ $data->nama_peminjam }}</td>
+                                    <td><span class="badge badge-primary text-light">{{ $data->kode_barang }}</span>
                                     <td>{{ $data->status }}</td>
                                 </tr>
                             @endforeach
