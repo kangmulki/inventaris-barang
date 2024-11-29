@@ -14,7 +14,7 @@
                         style="color: #000; background-color: #f5f5f5;">
                         @foreach ($pusat as $data)
                             <option value="{{ $data->id }}" {{ $data->id == $pinjam->pusat->id ? 'selected' : '' }}>
-                                {{ $data->nama }}
+                                {{ $data->nama }} - ({{ $data->merek }})
                             </option>
                         @endforeach
                     </select>

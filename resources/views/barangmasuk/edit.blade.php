@@ -13,7 +13,7 @@
                             @foreach ($pusat as $data)
                                 <option value="{{$data->id }}"
                                 @if($masuk->pusat->id == $data->id) selected @endif>
-                                    {{$data->nama}}
+                                    {{$data->nama}} - ({{ $data->merek }})
                                 </option>
                             @endforeach
                         </select>

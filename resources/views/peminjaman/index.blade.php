@@ -79,16 +79,21 @@
                             @foreach ($pinjam as $data)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td><span class="badge badge-primary text-light">{{ $data->kode_barang }}</span>
+                                    <td><span class="badge badge-primary text-light">{{ $data->pusat->kode_barang }}</span>
                                     <td>{{ $data->pusat->nama }}</td>
-                                    <td><span
-                                            class="badge badge-secondary text-dark">{{ $data->pusat->kode_barang }}</span>
+                                    <td>{{ $data->pusat->merek }}
+                                        {{-- <span class="badge badge-secondary text-dark">{{ $data->pusat->kode_barang }}</span> --}}
                                     </td>
                                     <td>{{ $data->jumlah }}</td>
                                     <td>{{ $data->formatted_tanggal_pinjam }}</td>
                                     <td>{{ $data->formatted_tanggal_kembali }}</td>
                                     <td>{{ $data->nama_peminjam }}</td>
-                                    <td>{{ $data->status }}</td>
+                                    <td>@if ($data->status == 'Sedang Dipinjam')
+                                        <span style="color: red;">Masih Dipinjam</span>
+                                        @else
+                                        <span style="color: green;">Sudah Dikembalikan</span>
+                                    @endif
+                                </td>
                                     <td>
                                         <form action="{{ route('peminjaman.destroy', $data->id) }}" method="POST">
                                             @csrf

@@ -14,7 +14,7 @@
                         </option>
                         @foreach ($pusat as $data)
                             <option value="{{ $data->id }}">
-                                {{ $data->nama }}
+                                {{ $data->nama }} - ({{ $data->merek }})
                             </option>
                         @endforeach
                     </select>

@@ -60,9 +60,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kode Barang Masuk</th>
-                                <th>Nama Barang</th>
                                 <th>Kode Barang</th>
+                                <th>Nama Barang</th>
+                                <th>Merek</th>
                                 <th>Jumlah</th>
                                 <th>Tanggal Masuk</th>
                                 <th>Keterangan</th>
@@ -76,10 +76,11 @@
                             @foreach ($masuk as $data)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td><span class="badge badge-success text-dark">{{ $data->kode_barang }}</span>
+                                    <td><span class="badge badge-success text-dark">{{ $data->pusat->kode_barang }}</span>
                                     <td>{{ $data->pusat->nama }}</td>
-                                    <td><span
-                                            class="badge badge-secondary text-dark">{{ $data->pusat->kode_barang }}</span>
+                                    <td>
+                                        {{ $data->pusat->merek }}
+                                        {{-- <span class="badge badge-secondary text-dark">{{ $data->pusat->kode_barang }}</span> --}}
                                     </td>
                                     <td>{{ $data->jumlah }}</td>
                                     <td>{{ $data->formatted_tanggal }}</td>
